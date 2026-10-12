@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.*;
 @RestController @RequestMapping("/api/bookings")
+@CrossOrigin(
+    origins = "https://ev-smart-qzy9popyj-rithwik9.vercel.app/",
+    allowCredentials = "true"
+)
 public class BookingController {
  public record BookingResponse(Long id,String stationName,Double stationLat,Double stationLon,java.time.LocalDateTime bookingStart,int durationMinutes,String status,boolean simulation) {}
  private BookingResponse dto(ChargingBooking b){return new BookingResponse(b.getId(),b.getStationName(),b.getStationLat(),b.getStationLon(),b.getBookingStart(),b.getDurationMinutes(),b.getStatus(),b.isSimulation());}

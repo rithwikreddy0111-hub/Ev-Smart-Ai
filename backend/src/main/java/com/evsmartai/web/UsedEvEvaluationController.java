@@ -13,6 +13,10 @@ import java.time.Instant;
 import java.util.List;
 
 @RestController @RequestMapping("/api/used-ev-evaluations")
+@CrossOrigin(
+    origins = "https://ev-smart-qzy9popyj-rithwik9.vercel.app/",
+    allowCredentials = "true"
+)
 public class UsedEvEvaluationController {
     public record CreateRequest(@NotBlank @Size(max=80) String make,@NotBlank @Size(max=100) String model,
         @Min(1990) @Max(2100) int modelYear,@DecimalMin("0.0") @DecimalMax("100000000.0") double askingPrice,

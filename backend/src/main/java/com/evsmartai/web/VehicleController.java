@@ -7,6 +7,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 @RestController @RequestMapping("/api/vehicles")
+@CrossOrigin(
+    origins = "https://ev-smart-qzy9popyj-rithwik9.vercel.app/",
+    allowCredentials = "true"
+)
 public class VehicleController {
  public record VehicleResponse(Long id,String make,String model,int modelYear,double batteryCapacityKwh,double batteryPercent,double efficiencyKwhPer100Km) {}
  private VehicleResponse dto(Vehicle v){return new VehicleResponse(v.getId(),v.getMake(),v.getModel(),v.getModelYear(),v.getBatteryCapacityKwh(),v.getBatteryPercent(),v.getEfficiencyKwhPer100Km());}

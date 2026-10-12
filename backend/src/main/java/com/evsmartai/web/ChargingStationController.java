@@ -25,6 +25,10 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/stations")
+@CrossOrigin(
+    origins = "https://ev-smart-qzy9popyj-rithwik9.vercel.app/",
+    allowCredentials = "true"
+)
 public class ChargingStationController {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
