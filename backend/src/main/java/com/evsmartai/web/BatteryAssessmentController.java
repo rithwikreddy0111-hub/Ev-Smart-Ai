@@ -13,10 +13,6 @@ import java.time.Instant;
 import java.util.List;
 
 @RestController @RequestMapping("/api/battery-assessments")
-@CrossOrigin(
-    origins = "https://ev-smart-qzy9popyj-rithwik9.vercel.app/",
-    allowCredentials = "true"
-)
 public class BatteryAssessmentController {
     public record CreateRequest(@DecimalMin("0.0") @DecimalMax("40.0") double batteryAgeYears,
         @Min(0) @Max(20000) int chargeCycles,

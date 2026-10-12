@@ -4,8 +4,12 @@ COPY pom.xml .
 RUN mvn -q -DskipTests dependency:go-offline
 COPY src ./src
 RUN mvn -q -DskipTests package
+
 FROM eclipse-temurin:21-jre
 WORKDIR /app
+RUN useradd --system --no-create-home appuser
 COPY --from=build /workspace/target/ev-smart-ai-1.0.0.jar app.jar
+USER appuser
+# The app binds to $PORT (set by Render and similar hosts), falling back to 8080.
 EXPOSE 8080
 ENTRYPOINT ["java","-XX:MaxRAMPercentage=75.0","-jar","/app/app.jar"]

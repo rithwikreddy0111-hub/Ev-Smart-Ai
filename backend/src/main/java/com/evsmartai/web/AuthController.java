@@ -9,10 +9,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 @RestController @RequestMapping("/api/auth")
-@CrossOrigin(
-    origins = "https://ev-smart-qzy9popyj-rithwik9.vercel.app/",
-    allowCredentials = "true"
-)
 public class AuthController {
  private final UserRepository users; private final PasswordEncoder encoder; private final JwtService jwt;
  public AuthController(UserRepository users,PasswordEncoder encoder,JwtService jwt){this.users=users;this.encoder=encoder;this.jwt=jwt;}
