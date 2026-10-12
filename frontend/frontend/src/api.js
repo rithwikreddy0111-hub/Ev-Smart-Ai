@@ -3,7 +3,7 @@ import axios from 'axios';
 // Set VITE_API_BASE_URL (including /api) in Vercel. In a production build without it we fall back to the
 // deployed Render backend, otherwise local development uses http://localhost:8080/api.
 const PROD_DEFAULT = 'https://ev-smart-ai.onrender.com/api';
-const baseURL = (import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? PROD_DEFAULT : 'http://localhost:8080/api')).replace(/\/+$/, '');
+const baseURL = (import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? PROD_DEFAULT : 'hhttps://ev-smart-ai.onrender.com/api')).replace(/\/+$/, '');
 
 // 60s: free Render instances can take ~50s to wake up, and a 10s timeout made the first login after idle fail.
 export const api = axios.create({ baseURL, timeout: 60000 });
